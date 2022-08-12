@@ -19,6 +19,10 @@ public class GatewayConfig {
                         route -> route.path("/ss/**")
                                 .filters((filter -> filter.stripPrefix(1)))
                                 .uri("lb://song-service"))
+                .route("storage-service_route",
+                        route -> route.path("/sts/**")
+                                .filters((filter -> filter.stripPrefix(1)))
+                                .uri("lb://storage-service"))
                 .build();
     }
 }
